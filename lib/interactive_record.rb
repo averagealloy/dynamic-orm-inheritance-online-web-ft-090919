@@ -19,13 +19,14 @@ class InteractiveRecord
       column_names << row["name"]
     end
     column_names.compact
-    #pragma returns an array that describes it self of the table name 
+    #pragma returns an array that describes it self of the table name
   end
 
   def initialize(options={})
     options.each do |property, value|
       self.send("#{property}=", value)
     end
+    #takes an empty hash and puts property and val into it 
   end
 
   def save
