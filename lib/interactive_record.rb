@@ -26,17 +26,20 @@ class InteractiveRecord
     options.each do |property, value|
       self.send("#{property}=", value)
     end
-    #takes an empty hash and puts property and val into it 
+    #takes an empty hash and puts property and val into it
   end
 
   def save
     sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
     DB[:conn].execute(sql)
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
+    # put table_name colum_name and values and pand put them into the table
+    #then thake the array of arrays at pos 0 and then at pos 0 and put that in
   end
 
   def table_name_for_insert
     self.class.table_name
+    #take the table name get this have it in this method so it can be called on later 
   end
 
   def values_for_insert
