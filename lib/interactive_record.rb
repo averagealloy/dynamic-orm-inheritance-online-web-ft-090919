@@ -48,11 +48,12 @@ class InteractiveRecord
       values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
     values.join(", ")
-    #checking to see if there is a colum name if there is sholve it into values 
+    #checking to see if there is a colum name if there is sholve it into values
   end
 
   def col_names_for_insert
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
+    
   end
 
 def self.find_by_name(name)
