@@ -39,7 +39,7 @@ class InteractiveRecord
 
   def table_name_for_insert
     self.class.table_name
-    #take the table name get this have it in this method so it can be called on later 
+    #take the table name get this have it in this method so it can be called on later
   end
 
   def values_for_insert
@@ -48,6 +48,7 @@ class InteractiveRecord
       values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
     values.join(", ")
+    #
   end
 
   def col_names_for_insert
