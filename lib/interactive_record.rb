@@ -5,6 +5,7 @@ class InteractiveRecord
 
   def self.table_name
     self.to_s.downcase.pluralize
+    #take the instance of table_name and covet to a string then downcase then plurize 
   end
 
   def self.column_names
